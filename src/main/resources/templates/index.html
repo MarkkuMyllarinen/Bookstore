@@ -8,5 +8,10 @@
 
 <h1>Welcome to Bookstore!!!</h1>
 
+<tr th:each="book : ${list}">
+    <td th:text="${book.title + '       ' + book.author}"></td>
+    <br/>
+</tr>
+
 </body>
 </html>
