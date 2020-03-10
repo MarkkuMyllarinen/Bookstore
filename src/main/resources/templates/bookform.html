@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Book</h1>
+<form action="#" th:action="@{/newbook}" th:object=${book} method="post">
+
+    <p>Author: <input type="text" th:field="${book.author}"/></p>
+    <p>Title: <input type="text" th:field="${book.title}"/></p>
+    <p>ISBN: <input type="text" th:field="${book.isbn}"/></p>
+    <p>Year: <input type="text" th:field="${book.year}"/></p>
+    <p>Price: <input type="text" th:field="${book.price}"/></p>
+    <label for="categorylist">Category</label>
+    <select id="categorylist" th:field="*{category}" class="form-control">
+        <option th:each="category: ${categories}"
+                th:value="${category.categoryid}"
+                th:text="${category.name}">
+        </option>
+    </select>
+    <input type="submit" value="Submit"/> <input type="reset" value="Reset"/>
+</form>
+
+
+</body>
+</html>
+

@@ -1,9 +1,7 @@
 package hh.ohju.bookstore.Model;
+import javax.persistence.JoinColumn;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Book {
@@ -15,6 +13,10 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "categoryid")
+    private Category category;
+
     public Book() {
         super();
         this.id = null;
@@ -23,26 +25,18 @@ public class Book {
         this.author = null;
         this.title = null;
         this.isbn = null;
+        this.category = null;
     }
 
 
-    public Book(Long id, String author, String title, String isbn, Double price, int year) {
+    public Book(String author, String title, String isbn, Double price, int year, Category category) {
         super();
         this.author = author;
         this.title = title;
         this.isbn = isbn;
         this.price = price;
         this.year = year;
-        this.id = id;
-    }
-
-    public Book(String author, String title, String isbn, Double price, int year) {
-        super();
-        this.author = author;
-        this.title = title;
-        this.isbn = isbn;
-        this.price = price;
-        this.year = year;
+        this.category = category;
     }
 
 
@@ -94,15 +88,35 @@ public class Book {
         this.id = id;
     }
 
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
     @Override
     public String toString() {
-        return "Book{" +
-                "author='" + author + '\'' +
-                ", title='" + title + '\'' +
-                ", isbn='" + isbn + '\'' +
-                ", price=" + price +
-                ", year=" + year +
-                ", id=" + id +
-                '}';
+        if (this.category != null) {
+            return "Book{" +
+                    "author='" + author + '\'' +
+                    ", title='" + title + '\'' +
+                    ", isbn='" + isbn + '\'' +
+                    ", price=" + price +
+                    ", year=" + year +
+                    ", id=" + id +
+                    ", category=" + this.category +
+                    '}';
+        } else {
+            return "Book{" +
+                    "author='" + author + '\'' +
+                    ", title='" + title + '\'' +
+                    ", isbn='" + isbn + '\'' +
+                    ", price=" + price +
+                    ", year=" + year +
+                    ", id=" + id +
+                    '}';
+        }
     }
 }

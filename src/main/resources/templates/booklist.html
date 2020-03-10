@@ -12,6 +12,7 @@
         <th>Title</th>
         <th>ISBN</th>
         <th>Year</th>
+        <th>Category</th>
     </tr>
 
     <tr th:each="book : ${books}">
@@ -19,7 +20,14 @@
         <td th:text="${book.title}">model</td>
         <td th:text="${book.isbn}">model</td>
         <td th:text="${book.year}">year</td>
+        <td th:text="${book.category.name}">category</td>
+        <td><a th:href="@{/deletebook/{id}(id=${book.id})}">Delete</a></td>
+        <td><a th:method="get" th:href="@{/editbook/{id}(id=${book.id})}">Edit</a></td>
     </tr>
+
+
+    <a href="/newbook" method="GET">New Book</a>
+
 </table>
 </body>
 </html>

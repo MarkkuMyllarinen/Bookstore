@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+        <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+        <head>
+            <meta charset="UTF-8">
+            <title>Title</title>
+        </head>
+<body>
+<h1>Categories</h1>
+<table>
+    <tr>
+        <th>Name</th>
+    </tr>
+
+    <tr th:each="category : ${categories}">
+        <td th:text="${category.name}"></td>
+    </tr>
+
+
+    <a href="/newcategory" method="GET">New Category</a>
+
+</table>
+</body>
+</html></title>
+</head>
+<body>
+
+</body>
+</html>
