@@ -1,4 +1,6 @@
 package hh.ohju.bookstore.Model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.JoinColumn;
 
 import javax.persistence.*;
@@ -14,6 +16,7 @@ public class Book {
     private Long id;
 
     @ManyToOne(cascade = CascadeType.ALL)
+    @JsonIgnore
     @JoinColumn(name = "categoryid")
     private Category category;
 
