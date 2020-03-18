@@ -48,7 +48,7 @@ public class BookConroller {
 
     @RequestMapping(value = "/newbook", method = RequestMethod.GET)
     public String getNewBookForm(Model model) {
-        model.addAttribute("book", new Book()); // "tyhjä" auto-olio
+        model.addAttribute("book", new Book());
         model.addAttribute("categories", categoryRepository.findAll());
         return "bookform";
     }
