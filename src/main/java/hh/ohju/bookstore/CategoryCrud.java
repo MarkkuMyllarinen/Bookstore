@@ -16,10 +16,6 @@ import org.springframework.context.annotation.Bean;
 public class CategoryCrud {
     private static final Logger log = LoggerFactory.getLogger(CategoryCrud.class);
 
-    public static void main(String[] args) {
-        SpringApplication.run(CategoryCrud.class, args);
-    }
-
     @Bean
     public CommandLineRunner categoryDemo(CategoryRepository CategoryRepository){
         return (args) -> {

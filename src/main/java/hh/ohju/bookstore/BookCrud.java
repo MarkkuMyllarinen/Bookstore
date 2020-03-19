@@ -18,9 +18,6 @@ import org.springframework.context.annotation.Bean;
 public class BookCrud {
     private static final Logger log = LoggerFactory.getLogger(BookCrud.class);
 
-    public static void main(String[] args) {
-        SpringApplication.run(BookCrud.class, args);
-    }
 
     @Bean
     public CommandLineRunner bookDemo(BookRepository bookRepository, UserRepository userRepository, CategoryRepository categoryRepository){
