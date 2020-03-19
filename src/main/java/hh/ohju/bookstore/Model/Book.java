@@ -1,5 +1,7 @@
 package hh.ohju.bookstore.Model;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.JoinColumn;
 
@@ -16,7 +18,7 @@ public class Book {
     private Long id;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JsonIgnore
+    @JsonManagedReference
     @JoinColumn(name = "categoryid")
     private Category category;
 
